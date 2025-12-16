@@ -2,399 +2,359 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои проекты</title>
+    <title>/проекты/</title>
     <style>
-        /* Общие стили */
+        /* Абсурдный минимализм */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: monospace;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #f8f9fa;
+            background: white;
+            color: black;
+            font-size: 12px;
+            line-height: 1;
+            padding: 20px;
             min-height: 100vh;
+            cursor: default;
         }
-        
+
+        /* Основной контейнер */
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            border: 1px solid black;
+            padding: 20px;
+            position: relative;
         }
-        
-        /* Шапка */
+
+        /* Заголовок - просто текст */
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 40px;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
         }
-        
+
         .title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 5px;
         }
-        
+
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 10px;
             color: #666;
-            max-width: 600px;
-            margin: 0 auto;
         }
-        
-        /* Сетка проектов */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+
+        /* Проекты как список */
+        .projects {
+            list-style: none;
         }
-        
-        /* Карточка проекта */
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.2s ease;
-            border: 1px solid #eaeaea;
-            height: 100%;
+
+        .project {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+            position: relative;
         }
-        
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            border-color: #d0d7de;
+
+        .project:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
-        
-        .project-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.25rem;
-            display: inline-block;
-            width: 64px;
-            height: 64px;
-            line-height: 64px;
-            text-align: center;
-            background: #f6f8fa;
-            border-radius: 12px;
+
+        /* Номер проекта */
+        .project-number {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            font-size: 10px;
+            color: #999;
         }
-        
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.75rem;
+
+        /* Информация о проекте */
+        .project-name {
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        .project-desc {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-        
+
         .project-folder {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #f6f8fa;
-            border-radius: 6px;
-            font-family: 'SF Mono', Monaco, monospace;
-            font-size: 0.875rem;
-            color: #555;
-            margin-bottom: 1.5rem;
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
         }
-        
-        /* Кнопки */
-        .project-buttons {
-            display: flex;
-            gap: 0.75rem;
+
+        .project-desc {
+            font-size: 11px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: #333;
+            max-width: 500px;
         }
-        
-        .btn {
-            flex: 1;
-            padding: 0.75rem 1.25rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
+
+        /* Кнопки - просто ссылки */
+        .project-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            gap: 10px;
+        }
+
+        .link {
+            font-size: 10px;
             text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            padding: 3px 8px;
+            transition: all 0.1s;
+            background: white;
         }
-        
-        .btn-primary {
-            background: #1a1a1a;
+
+        .link:hover {
+            background: black;
             color: white;
         }
-        
-        .btn-primary:hover {
-            background: #333;
-            transform: translateY(-2px);
+
+        .link:active {
+            transform: translate(1px, 1px);
         }
-        
-        .btn-secondary {
-            background: #f6f8fa;
-            color: #1a1a1a;
-            border: 1px solid #d0d7de;
-        }
-        
-        .btn-secondary:hover {
-            background: #eaeef2;
-        }
-        
-        /* Статус */
+
+        /* Статус - просто точка */
         .project-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            border: 1px solid black;
         }
-        
-        .status-done {
-            background: #dafbe1;
-            color: #1a7f37;
+
+        .status-active { background: black; }
+        .status-pending { background: white; }
+        .status-done { 
+            background: black; 
+            animation: blink 2s infinite;
         }
-        
-        .status-progress {
-            background: #fff8c5;
-            color: #9a6700;
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
-        
-        .status-pending {
-            background: #ffebe9;
-            color: #cf222e;
-        }
-        
+
         /* Футер */
         .footer {
+            margin-top: 50px;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #eaeaea;
+            font-size: 9px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
-        
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .title {
-                font-size: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .project-buttons {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
+
+        /* Псевдо-консольный вывод */
+        .console {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 9px;
+            color: #999;
+            pointer-events: none;
         }
-        
-        /* Анимации */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+
+        /* Эффекты взаимодействия */
+        .click-effect {
+            position: fixed;
+            width: 1px;
+            height: 1px;
+            background: black;
+            pointer-events: none;
+            animation: expand 0.3s forwards;
+        }
+
+        @keyframes expand {
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: scale(100);
+                opacity: 0;
             }
         }
-        
-        .project-card {
-            animation: fadeIn 0.3s ease forwards;
+
+        /* Тёмная тема (на всякий случай) */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: black;
+                color: white;
+            }
+            .container {
+                border-color: white;
+            }
+            .link {
+                color: white;
+                border-color: white;
+                background: black;
+            }
+            .link:hover {
+                background: white;
+                color: black;
+            }
+            .project-status {
+                border-color: white;
+            }
+            .status-active { background: white; }
+            .status-pending { background: black; }
+            .status-done { background: white; }
         }
-        
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка -->
-        <header class="header">
-            <h1 class="title">Мои проекты</h1>
-            <p class="subtitle">Нажмите на кнопку "Открыть проект", чтобы посмотреть работу в новой вкладке</p>
-        </header>
-        
-        <!-- Сетка проектов -->
-        <div class="projects-grid">
+        <!-- Заголовок -->
+        <div class="header">
+            <h1 class="title">проекты</h1>
+            <div class="subtitle">выбор для просмотра</div>
+        </div>
+
+        <!-- Список проектов -->
+        <div class="projects">
             <!-- Проект 1 -->
-            <div class="project-card">
-                <div class="project-icon">🎨</div>
-                <div class="project-status status-done">
-                    <span>●</span> Завершено
-                </div>
-                <h2 class="project-title">Сайт-портфолио</h2>
-                <p class="project-desc">Личный сайт с информацией о проектах и навыках</p>
+            <div class="project">
+                <div class="project-number">01</div>
+                <div class="project-status status-done"></div>
+                <div class="project-name">сайт портфолио</div>
                 <div class="project-folder">/portfolio/</div>
-                <div class="project-buttons">
-                    <button class="btn btn-primary" onclick="openProject('portfolio-site')">
-                        <span>↗</span> Открыть проект
-                    </button>
-                    <a href="./portfolio/" class="btn btn-secondary" target="_blank">
-                        <span>📁</span> Папка
-                    </a>
+                <div class="project-desc">
+                    минималистичный сайт для демонстрации работ. только чёрное и белое.
+                </div>
+                <div class="project-links">
+                    <a href="./portfolio-site/index.html" class="link" target="_blank" onclick="createClickEffect(event)">открыть</a>
+                    <a href="./portfolio-site/" class="link" target="_blank" onclick="createClickEffect(event)">папка</a>
                 </div>
             </div>
-            
+
             <!-- Проект 2 -->
-            <div class="project-card">
-                <div class="project-icon">📊</div>
-                <div class="project-status status-progress">
-                    <span>●</span> В работе
-                </div>
-                <h2 class="project-title">Дашборд</h2>
-                <p class="project-desc">Панель управления с аналитикой и графиками</p>
+            <div class="project">
+                <div class="project-number">02</div>
+                <div class="project-status status-active"></div>
+                <div class="project-name">дашборд</div>
                 <div class="project-folder">/dashboard/</div>
-                <div class="project-buttons">
-                    <button class="btn btn-primary" onclick="openProject('dashboard')">
-                        <span>↗</span> Открыть проект
-                    </button>
-                    <a href="./dashboard/" class="btn btn-secondary" target="_blank">
-                        <span>📁</span> Папка
-                    </a>
+                <div class="project-desc">
+                    панель с цифрами и графиками. данные в реальном времени.
+                </div>
+                <div class="project-links">
+                    <a href="./dashboard/index.html" class="link" target="_blank" onclick="createClickEffect(event)">открыть</a>
+                    <a href="./dashboard/" class="link" target="_blank" onclick="createClickEffect(event)">папка</a>
                 </div>
             </div>
-            
+
             <!-- Проект 3 -->
-            <div class="project-card">
-                <div class="project-icon">🎮</div>
-                <div class="project-status status-pending">
-                    <span>●</span> В планах
-                </div>
-                <h2 class="project-title">Игра</h2>
-                <p class="project-desc">Интерактивная браузерная игра</p>
+            <div class="project">
+                <div class="project-number">03</div>
+                <div class="project-status status-pending"></div>
+                <div class="project-name">игра</div>
                 <div class="project-folder">/game/</div>
-                <div class="project-buttons">
-                    <button class="btn btn-primary" onclick="openProject('game')">
-                        <span>↗</span> Открыть проект
-                    </button>
-                    <a href="./game/" class="btn btn-secondary" target="_blank">
-                        <span>📁</span> Папка
-                    </a>
+                <div class="project-desc">
+                    интерактивная игра с простой механикой. минимальный интерфейс.
+                </div>
+                <div class="project-links">
+                    <a href="./game/index.html" class="link" target="_blank" onclick="createClickEffect(event)">открыть</a>
+                    <a href="./game/" class="link" target="_blank" onclick="createClickEffect(event)">папка</a>
                 </div>
             </div>
-            
+
             <!-- Проект 4 -->
-            <div class="project-card">
-                <div class="project-icon">🏆</div>
-                <div class="project-status status-pending">
-                    <span>●</span> Ожидает
+            <div class="project">
+                <div class="project-number">04</div>
+                <div class="project-status status-pending"></div>
+                <div class="project-name">итог</div>
+                <div class="project-folder">/final/</div>
+                <div class="project-desc">
+                    финальный проект. всё вместе. чистая реализация.
                 </div>
-                <h2 class="project-title">Итоговый проект</h2>
-                <p class="project-desc">Комплексное веб-приложение</p>
-                <div class="project-folder">/final-project/</div>
-                <div class="project-buttons">
-                    <button class="btn btn-primary" onclick="openProject('final-project')">
-                        <span>↗</span> Открыть проект
-                    </button>
-                    <a href="./final-project/" class="btn btn-secondary" target="_blank">
-                        <span>📁</span> Папка
-                    </a>
+                <div class="project-links">
+                    <a href="./final-project/index.html" class="link" target="_blank" onclick="createClickEffect(event)">открыть</a>
+                    <a href="./final-project/" class="link" target="_blank" onclick="createClickEffect(event)">папка</a>
                 </div>
             </div>
         </div>
-        
+
         <!-- Футер -->
-        <footer class="footer">
-            <p>Все проекты размещены на GitHub Pages • Обновлено сегодня</p>
-        </footer>
+        <div class="footer">
+            <div>система проектов • версия 1.0 • только ч/б</div>
+            <div style="margin-top: 5px;">кликните для взаимодействия</div>
+        </div>
     </div>
-    
+
+    <!-- Консольный вывод -->
+    <div class="console" id="console">
+        > загружено: 4 проекта<br>
+        > готово: 1/4<br>
+        > ожидание действий
+    </div>
+
     <script>
-        // Функция открытия проекта
-        function openProject(folderName) {
-            const projectUrl = `./${folderName}/index.html`;
+        // Эффект клика
+        function createClickEffect(event) {
+            const effect = document.createElement('div');
+            effect.className = 'click-effect';
+            effect.style.left = event.clientX + 'px';
+            effect.style.top = event.clientY + 'px';
+            document.body.appendChild(effect);
             
-            // Показываем уведомление
-            showMessage(`Открываю проект...`);
+            setTimeout(() => effect.remove(), 300);
             
-            // Открываем в новом окне
-            window.open(projectUrl, `project_${folderName}`, 'width=1200,height=700');
-        }
-        
-        // Функция показа сообщения
-        function showMessage(text) {
-            // Создаем элемент для сообщения
-            const messageEl = document.createElement('div');
-            messageEl.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #1a1a1a;
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-size: 0.9rem;
-                z-index: 1000;
-                animation: slideIn 0.3s ease;
-            `;
-            messageEl.textContent = text;
+            // Обновление консоли
+            const projectName = event.target.closest('.project').querySelector('.project-name').textContent;
+            const consoleEl = document.getElementById('console');
+            consoleEl.innerHTML = `> открытие: ${projectName}<br>> запуск проекта<br>> в новой вкладке`;
             
-            document.body.appendChild(messageEl);
-            
-            // Удаляем через 2 секунды
             setTimeout(() => {
-                messageEl.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => messageEl.remove(), 300);
+                consoleEl.innerHTML = `> загружено: 4 проекта<br>> готово: 1/4<br>> ожидание действий`;
             }, 2000);
         }
-        
-        // Добавляем стили для анимации
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
+
+        // Случайное обновление консоли
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                const messages = [
+                    '> проверка статуса проектов',
+                    '> система активна',
+                    '> память: свободно',
+                    '> готов к работе',
+                    '> ожидание пользователя'
+                ];
+                const consoleEl = document.getElementById('console');
+                const originalText = consoleEl.innerHTML;
+                consoleEl.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+                
+                setTimeout(() => {
+                    consoleEl.innerHTML = originalText;
+                }, 1000);
             }
+        }, 5000);
+
+        // Эффект при наведении на номер проекта
+        document.querySelectorAll('.project-number').forEach(number => {
+            number.addEventListener('mouseenter', function() {
+                this.style.color = 'black';
+                this.style.transform = 'translateX(-5px)';
+            });
             
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+            number.addEventListener('mouseleave', function() {
+                this.style.color = '';
+                this.style.transform = '';
+            });
+        });
+
+        // Простое логирование
+        console.log('проекты загружены');
+        console.log('система: минимализм ч/б');
+        console.log('готов к взаимодействию');
     </script>
 </body>
 </html>
-
