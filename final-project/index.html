@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4002Bizarre — умное портфолио</title>
+  <link rel="stylesheet" href="styles-enhanced.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="chaotic">
+      <h1>4002BIZARRE</h1>
+      <p class="sub">умное портфолио с фильтрацией • интерактивное резюме</p>
+    </header>
+
+    <main>
+      <section class="hero chaotic">
+        <div class="photo-square">
+          <img src="photo/ava/photo_2025-04-03_13-03-24.jpg" alt="Моё фото">
+        </div>
+        <div class="intro">
+          <h2>ФИО: <span class="absurd">Шишкин Константин</span></h2>
+          <p class="nick">@4002Bizarre</p>
+          <p>Человек с именем Bizarrre. Увлекаюсь творческими направлениями — дизайн, игры и музыка.</p>
+          <p>В этом портфолио вы можете фильтровать работы по технологиям и сложности. Фильтры сохраняются автоматически.</p>
+          <div class="filter-status">
+            <p>Текущие фильтры: <span id="active-filters">все работы</span></p>
+            <button id="reset-filters">Сбросить фильтры</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="chaotic skills">
+        <h3>Навыки</h3>
+        <ul>
+          <li>Креативный</li>
+          <li>Критическое мышление</li>
+          <li>Ответственность</li>
+          <li>Собранность</li>
+          <li>Абсурдность</li>
+          <li>Наблюдательный</li>
+        </ul>
+      </section>
+
+      <section class="chaotic exp">
+        <h3>Опыт</h3>
+        <p><b>Фриланс 2024–2025</b><br>Веб-дизайнер, 3D<br>Создание дизайна веб-сайта от концепции до адаптивной вёрстки. Создание 3D моделей по чертежам. Разработка простых мини-игр.</p>
+        <p><b>Декоратор 2025–н.в.</b><br>Катаюсь на пиканистке да и всё.</p>
+      </section>
+
+      <section class="filter-panel chaotic">
+        <h3>ФИЛЬТРЫ</h3>
+        <div class="filter-group">
+          <h4>Технологии:</h4>
+          <div class="filter-buttons">
+            <button class="filter-btn" data-type="tech" data-value="all">Все</button>
+            <button class="filter-btn" data-type="tech" data-value="web">Веб-дизайн</button>
+            <button class="filter-btn" data-type="tech" data-value="3d">3D Моделирование</button>
+            <button class="filter-btn" data-type="tech" data-value="ui">UI/UX</button>
+            <button class="filter-btn" data-type="tech" data-value="game">Геймдизайн</button>
+            <button class="filter-btn" data-type="tech" data-value="brand">Брендинг</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4>Сложность:</h4>
+          <div class="filter-buttons">
+            <button class="filter-btn" data-type="difficulty" data-value="all">Любая</button>
+            <button class="filter-btn" data-type="difficulty" data-value="beginner">Начинающий</button>
+            <button class="filter-btn" data-type="difficulty" data-value="intermediate">Средняя</button>
+            <button class="filter-btn" data-type="difficulty" data-value="advanced">Продвинутый</button>
+            <button class="filter-btn" data-type="difficulty" data-value="absurd">Абсурдная</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4>Год:</h4>
+          <div class="filter-buttons">
+            <button class="filter-btn" data-type="year" data-value="all">Все</button>
+            <button class="filter-btn" data-type="year" data-value="2023">2023</button>
+            <button class="filter-btn" data-type="year" data-value="2024">2024</button>
+            <button class="filter-btn" data-type="year" data-value="2025">2025</button>
+          </div>
+        </div>
+        <div class="filter-stats">
+          <p>Найдено работ: <span id="project-count">0</span></p>
+          <p>Состояние сохранено в LocalStorage</p>
+        </div>
+      </section>
+
+      <section class="portfolio-grid chaotic">
+        <h2>РАБОТЫ</h2>
+        <div class="projects-container" id="projects-container">
+          <!-- Проекты будут загружены через JavaScript -->
+        </div>
+      </section>
+
+      <section class="chaotic lang">
+        <h3>Языки</h3>
+        <p>Русский — ★★★★★</p>
+        <p>Английский — ★★☆☆☆</p>
+        <p>Французский — ★★☆☆☆</p>
+      </section>
+
+      <section class="chaotic edu">
+        <h3>Образование</h3>
+        <p>СПБГУПТД<br>Прикладная информатика в дизайне<br>2022–2026</p>
+      </section>
+
+      <section class="chaotic ach">
+        <h3>Достижения</h3>
+        <ul>
+          <li>Дожил до 21 года.</li>
+          <li>Финалист SMP Racing 2017 года.</li>
+          <li>Сломал CSS и назвал это стилем.</li>
+          <li>Создал умное портфолио с сохранением состояния.</li>
+        </ul>
+      </section>
+
+      <section class="contacts chaotic">
+        <h2>Контакты</h2>
+        <p>Шишкин Константин — студент</p>
+        <p>Telegram: @ЕШЁ ЧЕГО?</p>
+        <p>Телефон: 89565656565</p>
+        <p class="absurd">лучше крикни в окно</p>
+      </section>
+    </main>
+
+    <footer class="chaotic">
+      <p>© 4002Bizarre</p>
+      <p class="absurd">этот сайт помнит ваши фильтры даже после перезагрузки. Магия LocalStorage!</p>
+    </footer>
+  </div>
+
+  <script src="script-enhanced.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тени Разума</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Экран предупреждения -->
+    <div id="warningScreen" class="screen">
+        <div class="warning-content">
+            <h2>⚠️ ВНИМАНИЕ ⚠️</h2>
+            <p>Эта игра содержит:</p>
+            <ul>
+                <li>Элементы психологического хоррора</li>
+                <li>Внезапные скримеры</li>
+                <li>Высокую сложность прохождения</li>
+                <li>Напряженную атмосферу</li>
+            </ul>
+            <p class="warning-text">Не рекомендуется для чувствительных людей</p>
+            <button id="acceptWarning" class="menu-btn warning-btn">ПОНЯЛ, ПРОДОЛЖИТЬ</button>
+        </div>
+    </div>
+
+    <!-- Стартовое меню -->
+    <div id="startMenu" class="screen hidden">
+        <div class="menu-content">
+            <h1>ТЕНИ РАЗУМА</h1>
+            <p class="subtitle">Психологический хоррор платформер</p>
+            <div class="character-select">
+                <div class="character selected" data-char="izumi">
+                    <div class="character-sprite izumi"></div>
+                    <span>IZUMI</span>
+                </div>
+                <div class="character" data-char="doki">
+                    <div class="character-sprite doki"></div>
+                    <span>DOKI</span>
+                </div>
+            </div>
+            <button id="startButton" class="menu-btn">НАЧАТЬ ИГРУ</button>
+            <button id="controlsButton" class="menu-btn">УПРАВЛЕНИЕ</button>
+            <div class="warning">⚠️ Содержит элементы психологического хоррора</div>
+        </div>
+    </div>
+
+    <!-- Экран управления -->
+    <div id="controlsScreen" class="screen hidden">
+        <div class="menu-content">
+            <h2>УПРАВЛЕНИЕ</h2>
+            <div class="controls-list">
+                <div class="control-item">
+                    <span>Движение:</span>
+                    <span>A/D или ←/→</span>
+                </div>
+                <div class="control-item">
+                    <span>Прыжок:</span>
+                    <span>ПРОБЕЛ или W/↑</span>
+                </div>
+                <div class="control-item">
+                    <span>Атака:</span>
+                    <span>ЛКМ или J</span>
+                </div>
+                <div class="control-item">
+                    <span>Взаимодействие:</span>
+                    <span>E</span>
+                </div>
+                <div class="control-item">
+                    <span>Пауза:</span>
+                    <span>ESC</span>
+                </div>
+            </div>
+            <button id="backButton" class="menu-btn">НАЗАД</button>
+        </div>
+    </div>
+
+    <!-- Игровой экран -->
+    <div id="gameScreen" class="screen hidden">
+        <canvas id="gameCanvas" width="1200" height="600"></canvas>
+        <div id="hud">
+            <div class="health-bar">
+                <div class="health-fill" id="playerHealth"></div>
+                <span id="characterName">IZUMI</span>
+            </div>
+            <div id="levelInfo">Уровень 1: Пробуждение</div>
+            <div id="dialogue" class="hidden"></div>
+            <div id="bossHealth" class="hidden">
+                <div class="boss-health-bar">
+                    <div class="boss-health-fill" id="bossHealthFill"></div>
+                    <span>DOKI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран смерти -->
+    <div id="deathScreen" class="screen hidden">
+        <div class="menu-content">
+            <h2>СОЗНАНИЕ ПОГЛОЩЕНО</h2>
+            <p>Тени забрали тебя...</p>
+            <p class="death-count">Смертей: <span id="deathCount">0</span></p>
+            <button id="respawnButton" class="menu-btn">ВОЗРОДИТЬСЯ</button>
+        </div>
+    </div>
+
+    <!-- Экран победы -->
+    <div id="winScreen" class="screen hidden">
+        <div class="menu-content">
+            <h2>ОСВОБОЖДЕНИЕ</h2>
+            <p>Ты преодолел демонов своего разума...</p>
+            <p class="death-count">Всего смертей: <span id="totalDeaths">0</span></p>
+            <p class="credits">Но помни - тени всегда наблюдают</p>
+            <button id="restartButton" class="menu-btn">НАЧАТЬ ЗАНОВО</button>
+        </div>
+    </div>
+
+    <!-- Экран скримера -->
+    <div id="jumpscareScreen" class="screen hidden">
+        <div class="jumpscare-content">
+            <div class="jumpscare-face"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

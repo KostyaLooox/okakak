@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: monospace, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+  background: #000;
+}
+
+/* фон */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000, #1a1a2e, #16213e);
+  filter: blur(8px) brightness(0.7);
+  z-index: -1;
+}
+
+/* центр */
+.site-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 4500px;
+  background: #fff;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  border-left: 4px solid #000;
+  border-right: 4px solid #000;
+}
+
+/* блоки */
+.chaotic {
+  position: absolute;
+  padding: 1.5em;
+  max-width: 380px;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 0 #000;
+  transform: rotate(calc(var(--angle, 0) * 1deg));
+}
+
+/* позиции */
+header         { --angle: -3; top: 50px;   left: 100px; }
+.hero          { --angle: 2;  top: 250px;  left: 600px; width: 380px; }
+.skills        { --angle: -5; top: 700px;  left: 200px; }
+.exp           { --angle: 4;  top: 1150px; left: 650px; }
+.filter-panel  { --angle: -2; top: 1600px; left: 100px; width: 400px; }
+.portfolio-grid{ --angle: 3;  top: 2100px; left: 550px; width: 700px; max-width: 700px; }
+.lang          { --angle: -8; top: 2700px; left: 100px; }
+.edu           { --angle: 6;  top: 3000px; left: 550px; }
+.ach           { --angle: -2; top: 3300px; left: 300px; }
+.contacts      { --angle: -4; top: 3700px; left: 650px; }
+footer         { --angle: 0;  top: 4000px; left: 250px; }
+
+/* квадратное фото */
+.photo-square {
+  width: 300px;
+  height: 300px;
+  border: 3px solid #000;
+  background: #eee;
+  display: block;
+  margin: 1em auto;
+  overflow: hidden;
+  transform: rotate(-2deg);
+  box-shadow: 6px 6px 0 #000;
+}
+.photo-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Фильтры */
+.filter-panel {
+  background: #f8f8f8;
+  z-index: 10;
+}
+
+.filter-group {
+  margin-bottom: 1.5em;
+}
+
+.filter-group h4 {
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border: 2px solid #000;
+  background: #fff;
+  font-family: monospace;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 60px;
+}
+
+.filter-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 3px 3px 0 #666;
+}
+
+.filter-stats {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px dashed #000;
+  font-size: 0.9em;
+}
+
+.filter-status {
+  margin-top: 1em;
+  padding: 10px;
+  background: #f0f0f0;
+  border: 1px dashed #000;
+}
+
+#reset-filters {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 2px solid #f00;
+  color: #f00;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+#reset-filters:hover {
+  background: #f00;
+  color: #fff;
+}
+
+/* Сетка портфолио */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.project-card {
+  border: 2px solid #000;
+  padding: 15px;
+  background: #fff;
+  transform: rotate(calc(var(--card-angle, 0) * 1deg));
+  transition: all 0.3s ease;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.project-card:hover {
+  transform: rotate(calc(var(--card-angle, 0) * 1deg)) scale(1.05);
+  box-shadow: 8px 8px 0 #000;
+  z-index: 5;
+}
+
+.project-image {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  background: #eee;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info h4 {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.project-tag {
+  padding: 2px 6px;
+  background: #f0f0f0;
+  border: 1px solid #000;
+  font-size: 0.7em;
+  border-radius: 3px;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.absurd {
+  font-style: italic;
+  opacity: 0.7;
+}

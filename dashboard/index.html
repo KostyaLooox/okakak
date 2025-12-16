@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дашборд - Веб-дизайн 30.09.25</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>окак</h1>
+            <p class="date">т</p>
+        </header>
+
+        <div class="dashboard-controls">
+            <div>
+                <button class="btn btn-primary" id="add-widget-btn">Добавить виджет</button>
+                <button class="btn btn-secondary" id="export-btn">Экспорт конфигурации</button>
+                <button class="btn btn-secondary" id="import-btn">Импорт конфигурации</button>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-danger" id="reset-btn">Сбросить дашборд</button>
+            </div>
+        </div>
+
+        <div class="widgets-grid" id="widgets-container">
+            <!-- Виджеты будут добавляться сюда динамически -->
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления виджетов -->
+    <div class="modal" id="widgets-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Доступные виджеты</h2>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="available-widgets" id="available-widgets">
+                <div class="available-widget" data-type="weather">Погода</div>
+                <div class="available-widget" data-type="currency">Курсы валют</div>
+                <div class="available-widget" data-type="quote">Случайная цитата</div>
+                <div class="available-widget" data-type="timer">Таймер</div>
+                <div class="available-widget" data-type="notes">Заметки</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для настроек виджета -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Настройки виджета</h2>
+                <button class="modal-close" id="close-settings-modal">&times;</button>
+            </div>
+            <div class="widget-settings" id="widget-settings">
+                <!-- Настройки будут добавляться динамически -->
+            </div>
+            <button class="btn btn-primary" id="save-settings">Сохранить</button>
+        </div>
+    </div>
+
+    <input type="file" id="import-file" style="display: none;" accept=".json">
+
+    <script src="script.js"></script>
+</body>
+</html>
