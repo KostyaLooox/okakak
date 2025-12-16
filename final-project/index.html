@@ -1,135 +1,617 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4002Bizarre — умное портфолио</title>
-  <link rel="stylesheet" href="styles-enhanced.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КиберХаос | Цифровое Абсурдное Портфолио</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="site-wrapper">
-    <header class="chaotic">
-      <h1>4002BIZARRE</h1>
-      <p class="sub">умное портфолио с фильтрацией • интерактивное резюме</p>
-    </header>
-
-    <main>
-      <section class="hero chaotic">
-        <div class="photo-square">
-          <img src="photo/ava/photo_2025-04-03_13-03-24.jpg" alt="Моё фото">
+    <!-- Анимированный фон -->
+    <div class="cyber-grid"></div>
+    <div class="glitch-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <!-- Телевизионные помехи -->
+    <div class="static-tv"></div>
+    
+    <!-- Левая панель терминала -->
+    <aside class="terminal-panel">
+        <div class="terminal-header">
+            <div class="terminal-title">
+                <span class="blink">█</span> C:/CYBERCHAOS/SYSTEM
+            </div>
+            <div class="terminal-controls">
+                <button class="term-btn" id="term-min">_</button>
+                <button class="term-btn" id="term-max">□</button>
+                <button class="term-btn" id="term-close">×</button>
+            </div>
         </div>
-        <div class="intro">
-          <h2>ФИО: <span class="absurd">Шишкин Константин</span></h2>
-          <p class="nick">@4002Bizarre</p>
-          <p>Человек с именем Bizarrre. Увлекаюсь творческими направлениями — дизайн, игры и музыка.</p>
-          <p>В этом портфолио вы можете фильтровать работы по технологиям и сложности. Фильтры сохраняются автоматически.</p>
-          <div class="filter-status">
-            <p>Текущие фильтры: <span id="active-filters">все работы</span></p>
-            <button id="reset-filters">Сбросить фильтры</button>
-          </div>
+        <div class="terminal-body">
+            <div class="terminal-output">
+                <div class="terminal-line">> INITIALIZING CYBERCHAOS v4.02...</div>
+                <div class="terminal-line">> LOADING ABSURDITY ENGINE...</div>
+                <div class="terminal-line">> SYSTEM STATUS: <span class="status-alert">CHAOTIC</span></div>
+                <div class="terminal-line">> USER: KONSTANTIN_SHISHKIN</div>
+                <div class="terminal-line">> ACCESS LEVEL: <span class="status-highlight">ABSOLUTE_ABSURDITY</span></div>
+                <div class="terminal-line">> CURRENT TIME: <span id="terminal-time">--:--:--</span></div>
+                <div class="terminal-line">> SYSTEM MEMORY: <span id="terminal-memory">LOADING...</span></div>
+                <div class="terminal-line">> > > > > WELCOME TO CYBERCHAOS < < < < <</div>
+            </div>
+            <div class="terminal-input">
+                <span class="prompt">CYBERCHAOS></span>
+                <input type="text" id="terminal-cmd" placeholder="Введите команду... (help для списка)">
+            </div>
         </div>
-      </section>
+    </aside>
 
-      <section class="chaotic skills">
-        <h3>Навыки</h3>
-        <ul>
-          <li>Креативный</li>
-          <li>Критическое мышление</li>
-          <li>Ответственность</li>
-          <li>Собранность</li>
-          <li>Абсурдность</li>
-          <li>Наблюдательный</li>
-        </ul>
-      </section>
-
-      <section class="chaotic exp">
-        <h3>Опыт</h3>
-        <p><b>Фриланс 2024–2025</b><br>Веб-дизайнер, 3D<br>Создание дизайна веб-сайта от концепции до адаптивной вёрстки. Создание 3D моделей по чертежам. Разработка простых мини-игр.</p>
-        <p><b>Декоратор 2025–н.в.</b><br>Катаюсь на пиканистке да и всё.</p>
-      </section>
-
-      <section class="filter-panel chaotic">
-        <h3>ФИЛЬТРЫ</h3>
-        <div class="filter-group">
-          <h4>Технологии:</h4>
-          <div class="filter-buttons">
-            <button class="filter-btn" data-type="tech" data-value="all">Все</button>
-            <button class="filter-btn" data-type="tech" data-value="web">Веб-дизайн</button>
-            <button class="filter-btn" data-type="tech" data-value="3d">3D Моделирование</button>
-            <button class="filter-btn" data-type="tech" data-value="ui">UI/UX</button>
-            <button class="filter-btn" data-type="tech" data-value="game">Геймдизайн</button>
-            <button class="filter-btn" data-type="tech" data-value="brand">Брендинг</button>
-          </div>
+    <!-- Правая панель статистики -->
+    <aside class="stats-panel">
+        <div class="stats-header">
+            <h3><i class="fas fa-chart-network"></i> СИСТЕМНАЯ СТАТИСТИКА</h3>
         </div>
-        <div class="filter-group">
-          <h4>Сложность:</h4>
-          <div class="filter-buttons">
-            <button class="filter-btn" data-type="difficulty" data-value="all">Любая</button>
-            <button class="filter-btn" data-type="difficulty" data-value="beginner">Начинающий</button>
-            <button class="filter-btn" data-type="difficulty" data-value="intermediate">Средняя</button>
-            <button class="filter-btn" data-type="difficulty" data-value="advanced">Продвинутый</button>
-            <button class="filter-btn" data-type="difficulty" data-value="absurd">Абсурдная</button>
-          </div>
+        <div class="stats-body">
+            <div class="stat-item">
+                <div class="stat-label">АБСУРДНОСТЬ</div>
+                <div class="stat-bar">
+                    <div class="stat-fill absurdity" style="width: 98%"></div>
+                </div>
+                <div class="stat-value">98%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">ХАОС</div>
+                <div class="stat-bar">
+                    <div class="stat-fill chaos" style="width: 95%"></div>
+                </div>
+                <div class="stat-value">95%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">КРЕАТИВ</div>
+                <div class="stat-bar">
+                    <div class="stat-fill creative" style="width: 90%"></div>
+                </div>
+                <div class="stat-value">90%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">ТЕХНОЛОГИИ</div>
+                <div class="stat-bar">
+                    <div class="stat-fill tech" style="width: 85%"></div>
+                </div>
+                <div class="stat-value">85%</div>
+            </div>
         </div>
-        <div class="filter-group">
-          <h4>Год:</h4>
-          <div class="filter-buttons">
-            <button class="filter-btn" data-type="year" data-value="all">Все</button>
-            <button class="filter-btn" data-type="year" data-value="2023">2023</button>
-            <button class="filter-btn" data-type="year" data-value="2024">2024</button>
-            <button class="filter-btn" data-type="year" data-value="2025">2025</button>
-          </div>
+        <div class="stats-footer">
+            <div class="active-filters" id="active-filters-display">
+                <span class="filter-tag">Все работы</span>
+            </div>
+            <button class="cyber-btn" id="reset-all">
+                <i class="fas fa-bomb"></i> СБРОС
+            </button>
         </div>
-        <div class="filter-stats">
-          <p>Найдено работ: <span id="project-count">0</span></p>
-          <p>Состояние сохранено в LocalStorage</p>
-        </div>
-      </section>
+    </aside>
 
-      <section class="portfolio-grid chaotic">
-        <h2>РАБОТЫ</h2>
-        <div class="projects-container" id="projects-container">
-          <!-- Проекты будут загружены через JavaScript -->
-        </div>
-      </section>
+    <!-- Основной контент -->
+    <main class="cyber-main">
+        <!-- Шапка с глитч-эффектом -->
+        <header class="cyber-header">
+            <div class="glitch-container">
+                <h1 class="glitch" data-text="КИБЕРХАОС">КИБЕРХАОС</h1>
+                <h2 class="sub-glitch" data-text="ЦИФРОВОЕ ПОРТФОЛИО №4002">ЦИФРОВОЕ ПОРТФОЛИО №4002</h2>
+            </div>
+            <div class="cyber-nav">
+                <nav class="main-menu">
+                    <a href="#bio" class="menu-item"><i class="fas fa-user-astronaut"></i> БИОГРАФИЯ</a>
+                    <a href="#projects" class="menu-item"><i class="fas fa-cube"></i> ПРОЕКТЫ</a>
+                    <a href="#lab" class="menu-item"><i class="fas fa-flask"></i> ЛАБОРАТОРИЯ</a>
+                    <a href="#archive" class="menu-item"><i class="fas fa-database"></i> АРХИВ</a>
+                    <a href="#contact" class="menu-item"><i class="fas fa-satellite-dish"></i> КОНТАКТ</a>
+                </nav>
+                <div class="system-controls">
+                    <button class="sys-btn" id="glitch-toggle">
+                        <i class="fas fa-bug"></i> ГЛИТЧ
+                    </button>
+                    <button class="sys-btn" id="sound-toggle">
+                        <i class="fas fa-volume-up"></i> ЗВУК
+                    </button>
+                    <button class="sys-btn" id="chaos-toggle">
+                        <i class="fas fa-random"></i> ХАОС
+                    </button>
+                </div>
+            </div>
+        </header>
 
-      <section class="chaotic lang">
-        <h3>Языки</h3>
-        <p>Русский — ★★★★★</p>
-        <p>Английский — ★★☆☆☆</p>
-        <p>Французский — ★★☆☆☆</p>
-      </section>
+        <!-- Биография -->
+        <section id="bio" class="cyber-section">
+            <div class="section-header">
+                <h3><i class="fas fa-user-secret"></i> ДОСЬЕ №4002-BIZARRE</h3>
+                <div class="header-decoration"></div>
+            </div>
+            <div class="bio-grid">
+                <div class="bio-card main-card">
+                    <div class="card-header">
+                        <div class="id-badge">
+                            <div class="id-photo">
+                                <img src="photo/ava/photo_2025-04-03_13-03-24.jpg" alt="ID Фото">
+                                <div class="id-overlay">CLEARANCE: ABSURD</div>
+                            </div>
+                            <div class="id-info">
+                                <h4>ШИШКИН КОНСТАНТИН</h4>
+                                <p class="id-code">AGENT: 4002-BIZARRE</p>
+                                <p class="id-status"><span class="blink">●</span> ONLINE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="data-row">
+                            <span class="data-label">ВОЗРАСТ:</span>
+                            <span class="data-value">21</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">ЛОКАЦИЯ:</span>
+                            <span class="data-value">СПБ, РУССИЯ</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">СПЕЦИАЛИЗАЦИЯ:</span>
+                            <span class="data-value">ЦИФРОВОЙ АБСУРД</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">СТАТУС:</span>
+                            <span class="data-value highlight">АКТИВЕН И ОПАСЕН</span>
+                        </div>
+                        <p class="bio-text">
+                            Существо из цифровой пены и нереализованных идей. Специализируюсь на создании того, что не должно существовать. 
+                            Моя работа — нарушать правила дизайна, ломать интерфейсы и собирать их заново, но уже неправильно.
+                        </p>
+                        <div class="bio-quote">
+                            <i class="fas fa-quote-left"></i>
+                            Если всё работает правильно — вы что-то делаете не так
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
 
-      <section class="chaotic edu">
-        <h3>Образование</h3>
-        <p>СПБГУПТД<br>Прикладная информатика в дизайне<br>2022–2026</p>
-      </section>
+                <div class="bio-card stats-card">
+                    <h4><i class="fas fa-brain"></i> ПСИХОМЕТРИКА</h4>
+                    <div class="psycho-metrics">
+                        <div class="metric">
+                            <div class="metric-name">КРЕАТИВНЫЙ БЕЗПОРЯДОК</div>
+                            <div class="metric-value">94%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-name">ЦИФРОВОЕ БЕЗУМИЕ</div>
+                            <div class="metric-value">88%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-name">ТЕХНО-МАГИЯ</div>
+                            <div class="metric-value">82%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-name">АБСУРДОСТОЙКОСТЬ</div>
+                            <div class="metric-value">99%</div>
+                        </div>
+                    </div>
+                </div>
 
-      <section class="chaotic ach">
-        <h3>Достижения</h3>
-        <ul>
-          <li>Дожил до 21 года.</li>
-          <li>Финалист SMP Racing 2017 года.</li>
-          <li>Сломал CSS и назвал это стилем.</li>
-          <li>Создал умное портфолио с сохранением состояния.</li>
-        </ul>
-      </section>
+                <div class="bio-card timeline-card">
+                    <h4><i class="fas fa-history"></i> ХРОНОЛОГИЯ</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-content">Начало цифровой мутации. Поступление в СПБГУПТД.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-content">Первые опыты с интерфейсным хаосом. Обнаружен баг в реальности.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-content">Создание первого абсурдного портфолио. Вселенский смех.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">Запуск проекта "КиберХаос". Реальность начала давать сбои.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <section class="contacts chaotic">
-        <h2>Контакты</h2>
-        <p>Шишкин Константин — студент</p>
-        <p>Telegram: @ЕШЁ ЧЕГО?</p>
-        <p>Телефон: 89565656565</p>
-        <p class="absurd">лучше крикни в окно</p>
-      </section>
+        <!-- Проекты с фильтрацией -->
+        <section id="projects" class="cyber-section">
+            <div class="section-header">
+                <h3><i class="fas fa-cubes"></i> ПРОЕКТНЫЙ АРХИВ</h3>
+                <div class="project-counter">
+                    <span id="total-projects">64</span> ПРОЕКТОВ ЗАГРУЖЕНО
+                </div>
+            </div>
+
+            <!-- Панель фильтров -->
+            <div class="filters-panel">
+                <div class="filter-group">
+                    <h5><i class="fas fa-filter"></i> ТИП ПРОЕКТА</h5>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="type" value="all">ВСЕ</button>
+                        <button class="filter-btn" data-filter="type" value="web">ВЕБ-ХАОС</button>
+                        <button class="filter-btn" data-filter="type" value="3d">3D-АБСУРД</button>
+                        <button class="filter-btn" data-filter="type" value="game">ИГРЫ</button>
+                        <button class="filter-btn" data-filter="type" value="art">ЦИФРОВОЕ ИСКУССТВО</button>
+                        <button class="filter-btn" data-filter="type" value="exp">ЭКСПЕРИМЕНТЫ</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h5><i class="fas fa-layer-group"></i> СЛОЖНОСТЬ</h5>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="difficulty" value="all">ЛЮБАЯ</button>
+                        <button class="filter-btn" data-filter="difficulty" value="simple">ПРОСТОЙ</button>
+                        <button class="filter-btn" data-filter="difficulty" value="medium">СРЕДНИЙ</button>
+                        <button class="filter-btn" data-filter="difficulty" value="hard">СЛОЖНЫЙ</button>
+                        <button class="filter-btn" data-filter="difficulty" value="absurd">АБСУРДНЫЙ</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h5><i class="fas fa-calendar-alt"></i> ГОД СОЗДАНИЯ</h5>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="year" value="all">ВСЕ</button>
+                        <button class="filter-btn" data-filter="year" value="2023">2023</button>
+                        <button class="filter-btn" data-filter="year" value="2024">2024</button>
+                        <button class="filter-btn" data-filter="year" value="2025">2025</button>
+                        <button class="filter-btn" data-filter="year" value="2026">2026</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h5><i class="fas fa-tools"></i> ТЕХНОЛОГИИ</h5>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="tech" value="all">ВСЕ</button>
+                        <button class="filter-btn" data-filter="tech" value="html">HTML/CSS</button>
+                        <button class="filter-btn" data-filter="tech" value="js">JS</button>
+                        <button class="filter-btn" data-filter="tech" value="blender">BLENDER</button>
+                        <button class="filter-btn" data-filter="tech" value="unity">UNITY</button>
+                        <button class="filter-btn" data-filter="tech" value="ai">ИИ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сетка проектов -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- 64 проекта будут сгенерированы через JavaScript -->
+                <!-- Каждый проект будет иметь data-атрибуты для фильтрации -->
+            </div>
+
+            <div class="projects-footer">
+                <div class="view-counter">
+                    <i class="fas fa-eye"></i> ОТОБРАЖАЕТСЯ: <span id="visible-projects">64</span>/64
+                </div>
+                <button class="cyber-btn load-more" id="load-more">
+                    <i class="fas fa-sync-alt"></i> ЗАГРУЗИТЬ ЕЩЕ ХАОСА
+                </button>
+            </div>
+        </section>
+
+        <!-- Лаборатория -->
+        <section id="lab" class="cyber-section">
+            <div class="section-header">
+                <h3><i class="fas fa-flask"></i> ЛАБОРАТОРИЯ АБСУРДА</h3>
+                <div class="lab-status">
+                    <span class="blink">⚠</span> ЭКСПЕРИМЕНТЫ В РЕАЛЬНОМ ВРЕМЕНИ
+                </div>
+            </div>
+
+            <div class="lab-container">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h4><i class="fas fa-virus"></i> ГЕНЕРАТОР ХАОСА</h4>
+                        <div class="experiment-controls">
+                            <button class="exp-btn" id="chaos-generator">
+                                <i class="fas fa-play"></i> ЗАПУСТИТЬ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="experiment-body">
+                        <div class="chaos-visualization" id="chaos-visual"></div>
+                        <div class="experiment-stats">
+                            <div class="exp-stat">
+                                <span>УРОВЕНЬ ХАОСА:</span>
+                                <span id="chaos-level">0%</span>
+                            </div>
+                            <div class="exp-stat">
+                                <span>АБСУРДНОСТЬ:</span>
+                                <span id="absurd-level">0%</span>
+                            </div>
+                            <div class="exp-stat">
+                                <span>ГЛИТЧИ:</span>
+                                <span id="glitch-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h4><i class="fas fa-palette"></i> ЦВЕТОВОЙ ВЗРЫВ</h4>
+                        <div class="experiment-controls">
+                            <input type="color" id="color-picker" value="#ff00ff">
+                            <button class="exp-btn" id="color-explode">
+                                <i class="fas fa-bomb"></i> ВЗОРВАТЬ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="experiment-body">
+                        <div class="color-grid" id="color-grid"></div>
+                    </div>
+                </div>
+
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h4><i class="fas fa-code"></i> КОДО-МУТАТОР</h4>
+                        <div class="experiment-controls">
+                            <button class="exp-btn" id="mutate-code">
+                                <i class="fas fa-dna"></i> МУТИРОВАТЬ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="experiment-body">
+                        <div class="code-mutator">
+                            <textarea id="code-input" placeholder="Введите код для мутации...">
+function createChaos() {
+    console.log("Начинаю хаос...");
+    return "Абсурд!";
+}</textarea>
+                            <div class="code-output" id="code-output"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h4><i class="fas fa-random"></i> СЛУЧАЙНЫЙ АБСУРД</h4>
+                        <div class="experiment-controls">
+                            <button class="exp-btn" id="random-absurd">
+                                <i class="fas fa-dice"></i> ГЕНЕРИРОВАТЬ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="experiment-body">
+                        <div class="absurd-generator">
+                            <div class="absurd-output" id="absurd-output">
+                                Нажмите кнопку для генерации абсурда
+                            </div>
+                            <div class="absurd-history" id="absurd-history"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Архив -->
+        <section id="archive" class="cyber-section">
+            <div class="section-header">
+                <h3><i class="fas fa-server"></i> ПОЛНЫЙ АРХИВ</h3>
+                <div class="archive-stats">
+                    <span>12.4 ГБ ДАННЫХ</span> | <span>4002+ ФАЙЛОВ</span>
+                </div>
+            </div>
+
+            <div class="archive-container">
+                <div class="archive-category">
+                    <h4><i class="fas fa-desktop"></i> ВЕБ-ПРОЕКТЫ (24)</h4>
+                    <div class="archive-list">
+                        <div class="archive-item">
+                            <span class="item-name">Хаотичный интерфейс v1</span>
+                            <span class="item-date">2023.08.15</span>
+                            <span class="item-size">24 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Глитч-портфолио</span>
+                            <span class="item-date">2024.01.22</span>
+                            <span class="item-size">48 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Кибер-магазин</span>
+                            <span class="item-date">2024.03.10</span>
+                            <span class="item-size">32 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Интерактивный хаос</span>
+                            <span class="item-date">2024.05.18</span>
+                            <span class="item-size">56 МБ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-category">
+                    <h4><i class="fas fa-cube"></i> 3D МОДЕЛИ (16)</h4>
+                    <div class="archive-list">
+                        <div class="archive-item">
+                            <span class="item-name">Абсурдный механизм</span>
+                            <span class="item-date">2023.11.05</span>
+                            <span class="item-size">128 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Кибер-существо</span>
+                            <span class="item-date">2024.02.14</span>
+                            <span class="item-size">256 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Глитч-архитектура</span>
+                            <span class="item-date">2024.04.30</span>
+                            <span class="item-size">192 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Хаотичный ландшафт</span>
+                            <span class="item-date">2024.06.22</span>
+                            <span class="item-size">320 МБ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-category">
+                    <h4><i class="fas fa-gamepad"></i> ИГРЫ (12)</h4>
+                    <div class="archive-list">
+                        <div class="archive-item">
+                            <span class="item-name">Хаос-платформер</span>
+                            <span class="item-date">2023.09.12</span>
+                            <span class="item-size">512 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Абсурдный квест</span>
+                            <span class="item-date">2024.02.28</span>
+                            <span class="item-size">768 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Глитч-шутер</span>
+                            <span class="item-date">2024.05.15</span>
+                            <span class="item-size">1.2 ГБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Кибер-паззл</span>
+                            <span class="item-date">2024.07.10</span>
+                            <span class="item-size">896 МБ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-category">
+                    <h4><i class="fas fa-paint-brush"></i> ЦИФРОВОЕ ИСКУССТВО (12)</h4>
+                    <div class="archive-list">
+                        <div class="archive-item">
+                            <span class="item-name">Серия "Хаос"</span>
+                            <span class="item-date">2023.10.08</span>
+                            <span class="item-size">64 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Глитч-коллажи</span>
+                            <span class="item-date">2024.01.30</span>
+                            <span class="item-size">96 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Нейро-арт</span>
+                            <span class="item-date">2024.04.12</span>
+                            <span class="item-size">80 МБ</span>
+                        </div>
+                        <div class="archive-item">
+                            <span class="item-name">Абсурдные паттерны</span>
+                            <span class="item-date">2024.06.05</span>
+                            <span class="item-size">72 МБ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="cyber-section">
+            <div class="section-header">
+                <h3><i class="fas fa-broadcast-tower"></i> КАНАЛЫ СВЯЗИ</h3>
+                <div class="connection-status">
+                    <span class="blink">⚡</span> СИГНАЛ УСТАНОВЛЕН
+                </div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <h4>TELEGRAM</h4>
+                    <p>@4002Bizarre</p>
+                    <button class="contact-btn" data-contact="tg">
+                        <i class="fab fa-telegram"></i> ОТПРАВИТЬ СИГНАЛ
+                    </button>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>ЭЛЕКТРОННАЯ ПОЧТА</h4>
+                    <p>chaos@cyberabsurd.ru</p>
+                    <button class="contact-btn" data-contact="email">
+                        <i class="fas fa-paper-plane"></i> ОТПРАВИТЬ СООБЩЕНИЕ
+                    </button>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h4>GITHUB</h4>
+                    <p>/CyberChaos4002</p>
+                    <button class="contact-btn" data-contact="github">
+                        <i class="fab fa-github"></i> ПРОСМОТРЕТЬ КОД
+                    </button>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h4>ПРЯМАЯ СВЯЗЬ</h4>
+                    <p>Частота 400.2 MHz</p>
+                    <button class="contact-btn" data-contact="direct">
+                        <i class="fas fa-broadcast-tower"></i> УСТАНОВИТЬ СВЯЗЬ
+                    </button>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h4><i class="fas fa-terminal"></i> ЭКСТРЕННОЕ СООБЩЕНИЕ</h4>
+                <div class="form-grid">
+                    <input type="text" placeholder="ВАШ ИДЕНТИФИКАТОР" class="form-input">
+                    <input type="text" placeholder="ТЕМА СООБЩЕНИЯ" class="form-input">
+                    <textarea placeholder="СООБЩЕНИЕ (шифрование включено)" class="form-textarea"></textarea>
+                    <button class="cyber-btn send-btn">
+                        <i class="fas fa-paper-plane"></i> ОТПРАВИТЬ В КИБЕРПРОСТРАНСТВО
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="cyber-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-text">КИБЕРХАОС</div>
+                    <div class="logo-sub">СИСТЕМА №4002</div>
+                </div>
+                <div class="footer-info">
+                    <p>ВСЕ ДАННЫЕ ЗАШИФРОВАНЫ. ВСЕ ПРАВА АБСУРДНЫ.</p>
+                    <p>СИСТЕМА РАБОТАЕТ НА ЧИСТОМ ХАОСЕ И КОФЕИНЕ.</p>
+                    <p>ПОСЛЕДНЕЕ ОБНОВЛЕНИЕ: <span id="current-date">--.--.----</span></p>
+                </div>
+                <div class="footer-warning">
+                    <p class="warning-text">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        ВНИМАНИЕ: ДЛИТЕЛЬНОЕ НАХОЖДЕНИЕ НА САЙТЕ МОЖЕТ ВЫЗВАТЬ ЦИФРОВОЕ ГОЛОВОКРУЖЕНИЕ
+                    </p>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <footer class="chaotic">
-      <p>© 4002Bizarre</p>
-      <p class="absurd">этот сайт помнит ваши фильтры даже после перезагрузки. Магия LocalStorage!</p>
-    </footer>
-  </div>
+    <!-- Модальное окно проекта -->
+    <div id="project-modal" class="cyber-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">ПРОЕКТ</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
 
-  <script src="script-enhanced.js"></script>
+    <!-- Аудио элементы -->
+    <audio id="glitch-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-computer-glitch-2338.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" preload="auto"></audio>
+    <audio id="hover-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-hover-sfx-1131.mp3" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
