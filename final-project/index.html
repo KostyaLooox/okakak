@@ -1,296 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4002Bizarre — минималистичное портфолио</title>
-  <link rel="stylesheet" href="styles-enhaced.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>Моё портфолио</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles-enhanced.css" />
 </head>
 <body>
-  <div class="site-wrapper">
-    <!-- Блоки с фильтрами -->
-    <aside class="filter-panel chaotic">
-      <h2><i class="fas fa-filter"></i> ФИЛЬТРЫ</h2>
-      <div class="filter-section">
-        <h3>ТИП</h3>
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="type" data-value="all">ВСЁ</button>
-          <button class="filter-btn" data-filter="type" data-value="web">ВЕБ</button>
-          <button class="filter-btn" data-filter="type" data-value="3d">3D</button>
-          <button class="filter-btn" data-filter="type" data-value="game">ИГРЫ</button>
-          <button class="filter-btn" data-filter="type" data-value="design">ДИЗАЙН</button>
-        </div>
-      </div>
-      
-      <div class="filter-section">
-        <h3>ГОД</h3>
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="year" data-value="all">ВСЕ</button>
-          <button class="filter-btn" data-filter="year" data-value="2023">2023</button>
-          <button class="filter-btn" data-filter="year" data-value="2024">2024</button>
-          <button class="filter-btn" data-filter="year" data-value="2025">2025</button>
-        </div>
-      </div>
-      
-      <div class="filter-section">
-        <h3>СТАТУС</h3>
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="status" data-value="all">ВСЕ</button>
-          <button class="filter-btn" data-filter="status" data-value="completed">ЗАВЕРШЕНО</button>
-          <button class="filter-btn" data-filter="status" data-value="progress">В РАБОТЕ</button>
-          <button class="filter-btn" data-filter="status" data-value="absurd">АБСУРД</button>
-        </div>
-      </div>
-      
-      <div class="filter-info">
-        <p>Найдено: <span id="project-count">32</span> работ</p>
-        <button class="reset-btn" id="reset-filters">
-          <i class="fas fa-redo"></i> СБРОСИТЬ
-        </button>
-      </div>
-      
-      <p class="absurd">Фильтры сохраняются. Браузер запомнит ваш хаос.</p>
-    </aside>
 
-    <header class="chaotic">
-      <h1>4002BIZARRE</h1>
-      <p class="sub">портфолио с фильтрами • цифровой минимализм • сохранение состояния</p>
-    </header>
+<header class="header">
+  <h1>Моё портфолио</h1>
+  <p>Frontend / Web-разработка</p>
+</header>
 
-    <main>
-      <!-- Блок информации -->
-      <section class="hero chaotic">
-        <div class="photo-square">
-          <img src="photo/ava/photo_2025-04-03_13-03-24.jpg" alt="Моё фото">
-          <div class="photo-tag">
-            <span>АКТИВНЫЙ ХАОС</span>
-          </div>
-        </div>
-        <div class="intro">
-          <h2>ФИО: <span class="absurd">Шишкин Константин</span></h2>
-          <p class="nick">@4002Bizarre</p>
-          <p>Дизайнер, который считает, что порядок — это скучно. Создаю интерфейсы, которые сбивают с толку, но работают.</p>
-          <p>Это портфолио фильтруется. Выбирайте категории слева. Фильтры сохраняются автоматически.</p>
-          <div class="active-filters">
-            <p><strong>Активные фильтры:</strong> <span id="active-filters-text">все работы</span></p>
-          </div>
-          <p class="absurd">Каждый раз, когда вы что-то фильтруете, где-то в мире ломается один перфекционист.</p>
-          <p class="absurd">Этот текст существует только потому, что вы его читаете. Или нет?</p>
-        </div>
-      </section>
+<section class="filters">
+  <select id="techFilter">
+    <option value="all">Все технологии</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="React">React</option>
+  </select>
 
-      <!-- Навыки -->
-      <section class="chaotic skills">
-        <h3><i class="fas fa-brain"></i> НАВЫКИ</h3>
-        <ul>
-          <li>Абсурдный дизайн <span class="skill-level">●●●●○</span></li>
-          <li>3D Моделирование <span class="skill-level">●●●○○</span></li>
-          <li>Веб-разработка <span class="skill-level">●●●●○</span></li>
-          <li>Интерфейсный хаос <span class="skill-level">●●●●●</span></li>
-          <li>Критическое мышление <span class="skill-level">●●●○○</span></li>
-          <li>Нарушение правил <span class="skill-level">●●●●●</span></li>
-        </ul>
-        <p class="absurd">Навыки измеряются в единицах абсурда. Максимум — 5.</p>
-      </section>
+  <select id="levelFilter">
+    <option value="all">Любая сложность</option>
+    <option value="easy">Лёгкая</option>
+    <option value="medium">Средняя</option>
+    <option value="hard">Сложная</option>
+  </select>
+</section>
 
-      <!-- Опыт -->
-      <section class="chaotic exp">
-        <h3><i class="fas fa-briefcase"></i> ОПЫТ</h3>
-        <div class="exp-item">
-          <h4>Фриланс Дизайнер</h4>
-          <p class="exp-period">2024–2025</p>
-          <p>Создание абсурдных интерфейсов. Разработка сайтов, которые работают, несмотря на дизайн.</p>
-          <span class="exp-tag">ВЕБ</span>
-          <span class="exp-tag">3D</span>
-        </div>
-        <div class="exp-item">
-          <h4>Декоратор-экспериментатор</h4>
-          <p class="exp-period">2025–н.в.</p>
-          <p>Создание пространств, которые нарушают законы физики и здравого смысла.</p>
-          <span class="exp-tag">ДИЗАЙН</span>
-          <span class="exp-tag">АБСУРД</span>
-        </div>
-        <div class="exp-item">
-          <h4>Разработчик мини-игр</h4>
-          <p class="exp-period">2023–2024</p>
-          <p>Игры с непредсказуемой механикой и сюрреалистичной графикой.</p>
-          <span class="exp-tag">ИГРЫ</span>
-          <span class="exp-tag">КОД</span>
-        </div>
-      </section>
+<section id="projects" class="projects"></section>
 
-      <!-- Портфолио -->
-      <section class="portfolio chaotic">
-        <h2><i class="fas fa-cubes"></i> РАБОТЫ (32 проекта)</h2>
-        <div class="portfolio-controls">
-          <div class="sort-controls">
-            <span>Сортировка:</span>
-            <select id="sort-select">
-              <option value="default">По умолчанию</option>
-              <option value="year">По году</option>
-              <option value="name">По названию</option>
-              <option value="type">По типу</option>
-            </select>
-          </div>
-          <div class="view-toggle">
-            <button class="view-btn active" data-view="grid">
-              <i class="fas fa-th-large"></i>
-            </button>
-            <button class="view-btn" data-view="list">
-              <i class="fas fa-list"></i>
-            </button>
-          </div>
-        </div>
-        
-        <div class="projects-grid" id="projects-grid">
-          <!-- 32 проекта будут загружены через JavaScript -->
-        </div>
-        
-        <div class="portfolio-footer">
-          <p class="absurd">
-            <i class="fas fa-info-circle"></i> 
-            Проекты загружаются по мере необходимости. Как и смысл жизни.
-          </p>
-        </div>
-      </section>
+<footer class="footer">
+  <p>© 2026 • Моё портфолио</p>
+</footer>
 
-      <!-- Образование -->
-      <section class="chaotic edu">
-        <h3><i class="fas fa-graduation-cap"></i> ОБРАЗОВАНИЕ</h3>
-        <div class="edu-item">
-          <h4>СПБГУПТД</h4>
-          <p class="edu-degree">Прикладная информатика в дизайне</p>
-          <p class="edu-period">2022–2026</p>
-          <p>Учусь создавать цифровой хаос систематически.</p>
-        </div>
-        <div class="edu-item">
-          <h4>Самообразование</h4>
-          <p class="edu-degree">Абсурдология в дизайне</p>
-          <p class="edu-period">Всю жизнь</p>
-          <p>Изучаю, как нарушать правила так, чтобы это выглядело осмысленно.</p>
-        </div>
-        <p class="absurd">Диплом — это бумажка, которая говорит, что ты учился. У меня таких нет.</p>
-      </section>
-
-      <!-- Языки -->
-      <section class="chaotic lang">
-        <h3><i class="fas fa-language"></i> ЯЗЫКИ</h3>
-        <div class="lang-item">
-          <span>Русский</span>
-          <div class="lang-level">
-            <div class="level-fill" style="width: 100%"></div>
-          </div>
-          <span>Родной</span>
-        </div>
-        <div class="lang-item">
-          <span>Английский</span>
-          <div class="lang-level">
-            <div class="level-fill" style="width: 60%"></div>
-          </div>
-          <span>B1</span>
-        </div>
-        <div class="lang-item">
-          <span>Французский</span>
-          <div class="lang-level">
-            <div class="level-fill" style="width: 40%"></div>
-          </div>
-          <span>A2</span>
-        </div>
-        <div class="lang-item">
-          <span>Язык абсурда</span>
-          <div class="lang-level">
-            <div class="level-fill absurd" style="width: 100%"></div>
-          </div>
-          <span>Свободно</span>
-        </div>
-      </section>
-
-      <!-- Достижения -->
-      <section class="chaotic ach">
-        <h3><i class="fas fa-trophy"></i> ДОСТИЖЕНИЯ</h3>
-        <ul>
-          <li>Дожил до 21 года в эпоху цифрового хаоса</li>
-          <li>Финалист SMP Racing 2017 года</li>
-          <li>Создал интерфейс, который сломался так красиво, что его выставили в музее</li>
-          <li>Научил ИИ понимать абсурд</li>
-          <li>Разработал систему фильтрации, которая запоминает хаос</li>
-        </ul>
-        <p class="absurd">Настоящие достижения не помещаются в списки. Они в голове.</p>
-      </section>
-
-      <!-- Инструменты -->
-      <section class="chaotic tools">
-        <h3><i class="fas fa-tools"></i> ИНСТРУМЕНТЫ</h3>
-        <div class="tools-grid">
-          <span class="tool-tag">Figma</span>
-          <span class="tool-tag">Blender</span>
-          <span class="tool-tag">VS Code</span>
-          <span class="tool-tag">Photoshop</span>
-          <span class="tool-tag">Illustrator</span>
-          <span class="tool-tag">HTML/CSS</span>
-          <span class="tool-tag">JavaScript</span>
-          <span class="tool-tag">Git</span>
-          <span class="tool-tag">Голова</span>
-          <span class="tool-tag">Кофе</span>
-          <span class="tool-tag">Бессонница</span>
-          <span class="tool-tag">Абсурд</span>
-        </div>
-        <p class="absurd">Самый важный инструмент — умение видеть мир иначе.</p>
-      </section>
-
-      <!-- Контакты -->
-      <section class="contacts chaotic">
-        <h2><i class="fas fa-envelope"></i> КОНТАКТЫ</h2>
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fab fa-telegram"></i>
-            <div>
-              <h4>Telegram</h4>
-              <p>@4002Bizarre</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h4>Телефон</h4>
-              <p>89565656565</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>Email</h4>
-              <p>bizarre@4002.design</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Локация</h4>
-              <p>Санкт-Петербург, Россия</p>
-            </div>
-          </div>
-        </div>
-        <p class="absurd">Лучший способ связаться — написать письмо в будущее. Я обязательно отвечу.</p>
-      </section>
-    </main>
-
-    <footer class="chaotic">
-      <div class="footer-content">
-        <p>© 4002Bizarre</p>
-        <p class="absurd">
-          Фильтры сохранены в LocalStorage. Сайт помнит ваш выбор. Вы помните этот текст?
-        </p>
-        <div class="footer-info">
-          <span>Проектов: <strong id="total-projects">32</strong></span>
-          <span>Фильтров активно: <strong id="active-filters-count">0</strong></span>
-          <span>Состояние: <strong id="save-status">сохранено</strong></span>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script src="script-enhanced.js"></script>
+<script src="script-enhanced.js"></script>
 </body>
 </html>
