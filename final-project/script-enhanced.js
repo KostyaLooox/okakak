@@ -1,23 +1,27 @@
 const projectsData = [
   {
-    title: "Лендинг",
+    title: "Сайт, который работает",
     tech: "HTML",
-    level: "easy"
+    level: "easy",
+    rotate: "-2deg"
   },
   {
-    title: "Интерактивная галерея",
+    title: "Интерактив ради интерактива",
     tech: "JavaScript",
-    level: "medium"
+    level: "medium",
+    rotate: "1.5deg"
   },
   {
-    title: "SPA приложение",
-    tech: "React",
-    level: "hard"
-  },
-  {
-    title: "CSS-анимации",
+    title: "CSS, но зачем",
     tech: "CSS",
-    level: "medium"
+    level: "medium",
+    rotate: "-1deg"
+  },
+  {
+    title: "Проект, который я боюсь",
+    tech: "JavaScript",
+    level: "hard",
+    rotate: "2deg"
   }
 ];
 
@@ -25,7 +29,6 @@ const techFilter = document.getElementById("techFilter");
 const levelFilter = document.getElementById("levelFilter");
 const projectsContainer = document.getElementById("projects");
 
-// Загрузка фильтров из LocalStorage
 techFilter.value = localStorage.getItem("tech") || "all";
 levelFilter.value = localStorage.getItem("level") || "all";
 
@@ -46,6 +49,7 @@ function renderProjects() {
   filtered.forEach(p => {
     const card = document.createElement("div");
     card.className = "card";
+    card.style.setProperty("--rotate", p.rotate);
 
     card.innerHTML = `
       <h3>${p.title}</h3>
