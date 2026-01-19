@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4002Bizarre</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-number">4002</span>
+                    <span class="logo-text">BIZARRE<br>STYLE ABSURD</span>
+                </div>
+                <nav class="nav">
+                    <a href="#works" class="nav-link">Работы</a>
+                    <a href="#about" class="nav-link">Обо мне</a>
+                    <a href="#contact" class="nav-link">Контакты</a>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="filter-section">
+                    <h3 class="filter-title">КАТЕГОРИЯ</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="3d">3D</button>
+                        <button class="filter-btn" data-filter="poster">ПОСТЕР</button>
+                        <button class="filter-btn" data-filter="web">ВЕБ</button>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">УРОВЕНЬ</h3>
+                    <div class="filter-buttons">
+                        <button class="level-btn active" data-level="all">Все</button>
+                        <button class="level-btn" data-level="beginner">Начинающий</button>
+                        <button class="level-btn" data-level="intermediate">Средний</button>
+                        <button class="level-btn" data-level="advanced">Продвинутый</button>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-number">4002</div>
+                </div>
+
+                <div class="filter-info">
+                    <div class="active-filters" id="active-filters">
+                        Показаны все проекты
+                    </div>
+                    <button class="reset-btn" id="reset-filters">
+                        Сбросить фильтры
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">ПОРТФОЛИО<br>ДИЗАЙНЕРА</h1>
+                    <p class="hero-subtitle">3D ДИЗАЙН • ПОСТЕРЫ • ВЕБ-ДИЗАЙН</p>
+                    <p class="hero-description">
+                        Создаю шум в логике и тигины на линии искусства. 
+                        Скоро доделаю синиматик на финском)
+                        Спецализируюсь на 3Д моделях, тематических проектах и заборах.
+                    </p>
+                </div>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </section>
+
+
+            <section id="works" class="works-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">ВЫБРАННЫЕ РАБОТЫ</h2>
+                        <div class="works-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="total-projects">12</span>
+                                <span class="stat-label">Всего проектов</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="filtered-projects">12</span>
+                                <span class="stat-label">Показано</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="works-grid" id="works-container">
+                        <!-- Через джс загрузка работ происходит ну так проще тут писать было лень-->
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="about-section">
+                <div class="container">
+                    <h2 class="section-title">ОБО МНЕ</h2>
+                    <div class="about-content">
+                        <div class="about-photo">
+                            <div class="photo-frame">                               
+                                <img src="assets/ava/photo_2026-01-19_23-15-00.jpg" alt="Мое фото" class="my-photo">
+                                <div class="photo-overlay">
+                                    <span>Дизайнер & Гончик</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-text">
+                            <h3>Привет, я Bizarre(Константин)</h3>
+                            <p>Человек с именем Bizarrre. Увлекаюсь творческими направлениями — дизайн, игры и музыка. 
+                            Любитель того, что все находят странным, например: лиса на красном заборе.
+                            Путешествия моё всё, особенно на велосипеде. В свободное время занимаюсь спортом и читаю книги.</p>
+                            <p>Мой рабочий процесс включает исследование, разработку концепции и тщательное 
+                            внимание к деталям для создания, а чего я не придумал.</p>
+                            
+                            <div class="personal-info">
+                                <div class="info-item">
+                                    <span class="info-label">Имя:</span>
+                                    <span class="info-value">Шишкин Константин</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Никнейм:</span>
+                                    <span class="info-value">@4002Bizarre</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Образование:</span>
+                                    <span class="info-value">СПБГУПТД, Прикладная информатика в дизайне</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Годы:</span>
+                                    <span class="info-value">2022-2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="skills-tools">
+                        <div class="skills-column">
+                            <h3>НАВЫКИ</h3>
+                            <ul>
+                                <li>3D Моделирование и рендеринг</li>
+                                <li>Графический дизайн</li>
+                                <li>Веб-дизайн</li>
+                                <li>Типографика</li>
+                                <li>UI/UX дизайн</li>
+                                <li>Креативное мышление</li>
+                            </ul>
+                        </div>
+                        <div class="skills-column">
+                            <h3>ИНСТРУМЕНТЫ</h3>
+                            <ul>
+                                <li>Blender 3D</li>
+                                <li>Adobe Creative Suite</li>
+                                <li>Figma</li>
+                                <li>HTML/CSS/JS</li>
+                            </ul>
+                        </div>
+                        <div class="skills-column">
+                            <h3>ДОСТИЖЕНИЯ</h3>
+                            <ul>
+                                <li>Финалист SMP Racing 2017</li>
+                                <li>Есть завершенные проекты</li>
+                                <li>Изучаю 3D моделирование</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="contact" class="contact-section">
+                <div class="container">
+                    <h2 class="section-title">ЗАДАТЬ ВОПРОС</h2>
+                    <div class="simple-form">
+                        <p class="form-description">Есть вопросы о моих работах? Отправьте мне сообщение.</p>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Ваше имя</label>
+                                    <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Ваш email</label>
+                                    <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Ваш вопрос</label>
+                                <textarea id="message" name="message" rows="3" placeholder="Введите ваш вопрос здесь..." required></textarea>
+                            </div>
+                            
+                            <div class="form-footer">
+                                <button type="submit" class="submit-btn">
+                                    Отправить вопрос
+                                </button>
+                                <p class="form-note">Я отвечу вам в течение 1-2 рабочих дней.</p>
+                            </div>
+                        </form>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>60karlik60.1@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>финский номер</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Санкт-Петербург, Россия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <span class="logo-number">4002</span>
+                    <span class="logo-text">BIZARRE<br>STYLE ABSURD</span>
+                </div>
+                <div class="copyright">
+                    <p>© 4002 Все права защищены</p>
+                    <p class="footer-note">Портфолио дизайнера Bizarre</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.behance.net/kostyashishk1n" class="social-link" title="Behance">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/Rim1ry" class="social-link" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "works": [
+    {
+      "id": 1,
+      "title": "FUTURE ARCHITECTURE",
+      "category": "3d",
+      "level": "advanced",
+      "description": "Complex 3D model of futuristic building with detailed textures and lighting.",
+      "technologies": ["Blender", "Substance", "Photoshop"],
+      "year": 2024
+    },
+    {
+      "id": 2,
+      "title": "URBAN TYPOGRAPHY",
+      "category": "poster",
+      "level": "intermediate",
+      "description": "Poster series exploring urban aesthetics through typography.",
+      "technologies": ["Illustrator", "InDesign"],
+      "year": 2024
+    }
+  ]
+}
